@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="header">
+      <h2>Portal del Paciente</h2>
+      <p>Bienvenido al Back Office</p>
+    </div>
+
+    <form>
+      <div class="input-group">
+        <label>Usuario (DNI)</label>
+        <input type="text" [(ngModel)]="usuario" name="usuario" placeholder="Ej: 12345678X" required>
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="button" (click)="onLogin()" class="btn-login">Acceder</button>
+
+      <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+    </form>
+  </div>
+</div>

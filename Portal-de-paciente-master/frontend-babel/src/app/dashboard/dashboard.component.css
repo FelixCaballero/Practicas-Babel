@@ -1,0 +1,262 @@
+/* Contenedor principal que ocupa toda la pantalla */
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+
+.main-header {
+  background-color: #c8e6c9; /* pastel green */
+  color: #1b5e20;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Botón de Salir */
+.btn-exit {
+  background-color: #d93025;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-exit:hover {
+  background-color: #b3261e;
+}
+
+/* Contenedor del cuerpo (Menu + Centro) */
+.main-container {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Menú lateral */
+.sidebar {
+  width: 250px;
+  background-color: #ffffff;
+  border-right: 1px solid #dadce0;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+/* Ítem Inicio */
+.sidebar-home {
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #2e7d32;
+  font-weight: 600;
+  font-size: 1rem;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-home:hover {
+  background-color: #e8f5e9;
+}
+
+.sidebar-home.active {
+  background-color: #e8f5e9;
+  border-left: 3px solid #2e7d32;
+}
+
+/* Ítems de menú dinámicos */
+.sidebar-menu-item {
+  padding: 11px 20px 11px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #202124;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-menu-item:hover {
+  background-color: #f1f3f4;
+  color: #2e7d32;
+}
+
+.sidebar-menu-item.active {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-left: 3px solid #2e7d32;
+}
+
+/* Separador y etiqueta de sección administración */
+.sidebar-separator {
+  padding: 8px 16px 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #9aa0a6;
+  border-top: 1px solid #e8eaed;
+  margin-top: 8px;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Ítems de administración (parte inferior) */
+.sidebar-admin-item {
+  padding: 9px 20px 9px 28px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #80868b;
+  font-size: 0.88rem;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-admin-item:hover {
+  background-color: #f1f3f4;
+  color: #2e7d32;
+}
+
+.sidebar-admin-item.active {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border-left: 3px solid #2e7d32;
+  font-weight: 600;
+}
+
+.sidebar-icon {
+  margin-right: 6px;
+  font-size: 0.9rem;
+}
+
+/* Parte central */
+.content {
+  flex: 1;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  overflow-y: auto;
+}
+
+.content h2 {
+  color: #2e7d32;
+  border-bottom: 2px solid #e8eaed;
+  padding-bottom: 10px;
+}
+
+/* Migas de pan (Breadcrumb) */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-item {
+  color: #2e7d32;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.breadcrumb-item:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.breadcrumb-active {
+  color: #5f6368;
+  cursor: default;
+  font-weight: 500;
+}
+
+.breadcrumb-item.breadcrumb-active:hover {
+  text-decoration: none;
+}
+
+.breadcrumb-sep {
+  color: #9aa0a6;
+  user-select: none;
+}
+
+/* Enlace de descripción de página */
+.pagina-link {
+  color: #2e7d32;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pagina-link:hover {
+  text-decoration: underline;
+}
+
+/* Renderizador de contenido HTML del campo CLOB */
+.content-html {
+  background: white;
+  padding: 20px 28px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  line-height: 1.7;
+}
+
+/* Estado vacío */
+.empty-state {
+  background: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  color: #9aa0a6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Admin card, grid, table, buttons */
+.admin-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.form-group label { display: block; font-size: 0.85rem; color: #5f6368; font-weight: 600; margin-bottom: 4px; }
+input, textarea, select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+.custom-table { width: 100%; border-collapse: collapse; background: white; }
+.custom-table th, .custom-table td { padding: 12px; border: 1px solid #eee; text-align: left; }
+.custom-table th { background-color: #f1f3f4; font-weight: 600; color: #5f6368; }
+.btn-save { background: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+.btn-edit { background: #4caf50; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+.btn-delete { background: #d93025; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+
+/* Estilos para la vista de Inicio */
+.home-view {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.home-view h2 {
+  border-bottom: none;
+}
+
+.home-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.home-img {
+  max-width: 250px;
+  height: auto;
+}
