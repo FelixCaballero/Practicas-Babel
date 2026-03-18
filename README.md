@@ -4,7 +4,7 @@ Este proyecto es una aplicación web Full-Stack diseñada para gestionar el "Por
 
 ## 🚀 Tecnologías Utilizadas
 
-### Backend (Carpeta `angular/`)
+### Backend (Carpeta `spring/`)
 * **Java**
 * **Spring Boot**: Framework principal para el desarrollo de la API REST.
 * **Spring Data JPA**: Para la persistencia de datos y comunicación con la base de datos.
