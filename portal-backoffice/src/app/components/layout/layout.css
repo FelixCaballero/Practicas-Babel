@@ -1,0 +1,73 @@
+.app-dark {
+  background-color: #121212;
+  color: #e9ecef;
+}
+
+.topbar {
+  background: linear-gradient(90deg, #111111, #1b1b1b);
+  min-height: 72px;
+  padding: 0.75rem 1rem;
+}
+
+.navbar-title {
+  color: #f1f3f5;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 72px);
+}
+
+.sidebar {
+  background: #181a1f;
+  border-right: 1px solid #2c2f36;
+  min-height: calc(100vh - 72px);
+}
+
+.content-area {
+  background-color: #202225;
+  min-height: calc(100vh - 72px);
+}
+
+.content-card {
+  background-color: #2a2d33;
+  color: #f8f9fa;
+  border: 1px solid #3a3f46;
+  border-radius: 12px;
+}
+
+.sidebar .btn {
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.sidebar .btn-outline-light {
+  color: #f8f9fa;
+  border-color: #6c757d;
+}
+
+.sidebar .btn-outline-light:hover {
+  background-color: #f8f9fa;
+  color: #111111;
+}
+
+.sidebar .btn-outline-secondary {
+  color: #ced4da;
+  border-color: #6c757d;
+}
+
+.sidebar .btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+.sidebar h4 {
+  font-weight: 700;
+}
+
+.text-secondary {
+  color: #adb5bd !important;
+}

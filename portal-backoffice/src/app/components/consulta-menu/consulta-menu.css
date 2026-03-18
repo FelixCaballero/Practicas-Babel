@@ -1,0 +1,43 @@
+.consulta-page {
+  color: #f1f3f5;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #f8f9fa;
+}
+
+.page-subtitle {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+.form-card {
+  background-color: #2a2d33;
+  color: #f8f9fa;
+  border: 1px solid #3a3f46;
+  border-radius: 14px;
+}
+
+.form-label {
+  color: #dee2e6;
+  font-weight: 600;
+}
+
+.form-control {
+  background-color: #181a1f;
+  border: 1px solid #495057;
+  color: #f8f9fa;
+}
+
+.form-control::placeholder {
+  color: #868e96;
+}
+
+.form-control:focus {
+  background-color: #181a1f;
+  color: #f8f9fa;
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
