@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { Pagina, PortalPagina } from '../../services/pagina';
+import { QuillModule } from 'ngx-quill';
 
 @Component({
   selector: 'app-pagina-alta',
   standalone: true,
-  imports: [FormsModule, NgIf, RouterLink],
+  imports: [FormsModule, NgIf, RouterLink, QuillModule],
   templateUrl: './pagina-alta.html',
   styleUrl: './pagina-alta.css',
 })

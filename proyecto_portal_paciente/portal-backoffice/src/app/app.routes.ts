@@ -8,6 +8,7 @@ import { ConsultaPagina } from './components/consulta-pagina/consulta-pagina';
 import { ConsultaMenu } from './components/consulta-menu/consulta-menu';
 import { PaginaAlta } from './components/pagina-alta/pagina-alta';
 import { Guiadas } from './components/guiadas/guiadas';
+import { ArbolMenus } from './components/arbol-menus/arbol-menus';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -29,6 +30,7 @@ export const routes: Routes = [
       { path: 'consultar-menu', component: ConsultaMenu },
       //GUIADA
       {path: 'guiadas', component: Guiadas},
+      {path:'arbol-menu',component : ArbolMenus}
     ],
   },
   //Cualquier URL que no coincida con rutas anteriores redirige a /login
