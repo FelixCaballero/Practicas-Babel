@@ -10,6 +10,7 @@ export interface PortalPagina {
   migasPan: string;
   titulo: string;
   idLang: string;
+  idCompleto: number;
 }
 @Injectable({ providedIn: 'root' })
 export class Pagina {

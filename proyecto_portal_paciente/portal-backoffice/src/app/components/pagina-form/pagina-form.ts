@@ -19,6 +19,7 @@ export class PaginaForm implements OnInit {
     descripcion: '',
     migasPan: '',
     pagina: '',
+    idCompleto: 0,
   };
 
   constructor(
@@ -57,7 +58,7 @@ export class PaginaForm implements OnInit {
         },
         error: (err) => {
           console.error('Error al actualizar página', err);
-        }
+        },
       });
     }
   }

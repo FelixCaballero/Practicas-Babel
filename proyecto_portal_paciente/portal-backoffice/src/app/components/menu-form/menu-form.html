@@ -34,12 +34,17 @@
 
               <div class="col-md-4">
                 <label class="form-label">Idioma</label>
-                <input
-                  type="text"
+                <select
                   class="form-control"
                   [(ngModel)]="menu.idLang"
                   name="idLang"
-                  required>
+                  required
+                >
+                  <option value="1">Español</option>
+                  <option value=2>Inglés</option>
+                  <option value=3>Gallego</option>
+                  <option value=4>Catalan</option>
+                </select>
               </div>
 
               <div class="col-md-4">

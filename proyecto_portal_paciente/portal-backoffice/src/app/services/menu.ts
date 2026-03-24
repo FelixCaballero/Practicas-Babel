@@ -12,6 +12,7 @@ export interface PortalMenu {
   nivel?: number;
   posicionRaiz?: number;
   posicion?: number;
+  idCompleto?: number;
 }
 @Injectable({ providedIn: 'root' })
 export class Menu {

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "portal_menu")
 public class portalMenu {
@@ -20,7 +19,7 @@ public class portalMenu {
     private Integer idPadre;
 
     @Column(name = "id_lang", length = 1)
-    private String idLang;
+    private Integer idLang;
 
     @Column(name = "nom_menu", length = 120)
     private String nomMenu;
@@ -36,4 +35,27 @@ public class portalMenu {
 
     @Column(name = "posicion",length = 3)
     private Integer posicion;
+
+    @Column(name = "id_completo")
+    private Integer idCompleto;
+
+    public portalMenu(Integer id, Integer idPadre, Integer idLang, String nomMenu, String hrefMenu,
+                      Integer nivel, Integer posicionRaiz, Integer posicion) {
+        this.id = id;
+        this.idPadre = idPadre;
+        this.idLang = idLang;
+        this.nomMenu = nomMenu;
+        this.hrefMenu = hrefMenu;
+        this.nivel = nivel;
+        this.posicionRaiz = posicionRaiz;
+        this.posicion = posicion;
+    }
+    @PostLoad
+    @PostPersist
+    @PostUpdate
+    public void calculateIdCompleto() {
+        if (idLang != null && id != null) {
+            this.idCompleto = idLang * 10000 + id;
+        }
+    }
 }

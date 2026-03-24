@@ -20,6 +20,7 @@ export class MenuAlta {
     nivel: 1,
     posicionRaiz: 1,
     posicion: 1,
+    idCompleto: 0,
   };
 
   constructor(

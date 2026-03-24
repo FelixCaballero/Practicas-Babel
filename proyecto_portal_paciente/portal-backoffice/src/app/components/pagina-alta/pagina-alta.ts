@@ -20,6 +20,7 @@ export class PaginaAlta {
     descripcion: '',
     migasPan: '',
     pagina: '',
+    idCompleto: 0,
   };
 
   constructor(
