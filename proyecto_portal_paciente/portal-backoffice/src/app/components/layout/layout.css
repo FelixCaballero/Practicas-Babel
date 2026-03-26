@@ -1,20 +1,24 @@
 .app-dark {
-  background-color: #121212;
+  background: linear-gradient(180deg, #0f1b2d 0%, #13233a 100%);
   color: #e9ecef;
 }
 
 .topbar {
-  background: linear-gradient(90deg, #111111, #1b1b1b);
+  background: linear-gradient(90deg, #0b1626 0%, #12233b 55%, #16304f 100%);
   min-height: 72px;
   padding: 0.75rem 1rem;
+  border-bottom: 3px solid #c9a227;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .navbar-title {
-  color: #f1f3f5;
+  color: #f8f9fa;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
   white-space: nowrap;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .main-wrapper {
@@ -22,52 +26,164 @@
 }
 
 .sidebar {
-  background: #181a1f;
-  border-right: 1px solid #2c2f36;
+  background: linear-gradient(180deg, #0d1726 0%, #111f33 100%);
+  border-right: 1px solid #27405f;
   min-height: calc(100vh - 72px);
+  box-shadow: inset -1px 0 0 rgba(201, 162, 39, 0.15);
 }
 
 .content-area {
-  background-color: #202225;
+  background:
+    linear-gradient(rgba(10, 22, 38, 0.92), rgba(10, 22, 38, 0.92)),
+    linear-gradient(135deg, #12233b 0%, #1a2f4a 100%);
   min-height: calc(100vh - 72px);
 }
 
 .content-card {
-  background-color: #2a2d33;
+  background: linear-gradient(180deg, #18283f 0%, #1d314d 100%);
   color: #f8f9fa;
-  border: 1px solid #3a3f46;
+  border: 1px solid #2e4d73;
+  border-left: 4px solid #c9a227;
   border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
 }
 
 .sidebar .btn {
   border-radius: 10px;
-  font-weight: 500;
+  font-weight: 600;
+  padding: 0.9rem 1rem;
+  text-align: left;
+  transition: all 0.2s ease;
 }
 
 .sidebar .btn-outline-light {
   color: #f8f9fa;
-  border-color: #6c757d;
+  border-color: #3e5f89;
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .sidebar .btn-outline-light:hover {
-  background-color: #f8f9fa;
-  color: #111111;
+  background: linear-gradient(90deg, #1d3557 0%, #274a78 100%);
+  border-color: #c9a227;
+  color: #ffffff;
+  transform: translateX(2px);
 }
 
 .sidebar .btn-outline-secondary {
-  color: #ced4da;
-  border-color: #6c757d;
+  color: #d8dee9;
+  border-color: #476489;
+  background-color: rgba(255, 255, 255, 0.02);
 }
 
 .sidebar .btn-outline-secondary:hover {
-  background-color: #6c757d;
-  color: white;
+  background: linear-gradient(90deg, #223a5c 0%, #2d4e79 100%);
+  border-color: #c9a227;
+  color: #ffffff;
+  transform: translateX(2px);
 }
 
-.sidebar h4 {
+.sidebar .btn-danger,
+.sidebar .btn-primary,
+.sidebar .btn-warning {
   font-weight: 700;
 }
 
+.sidebar h4 {
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-bottom: 2px solid rgba(201, 162, 39, 0.45);
+  padding-bottom: 0.5rem;
+}
+
 .text-secondary {
-  color: #adb5bd !important;
+  color: #b8c7d9 !important;
+}
+
+/* Botones principales */
+.btn-primary {
+  background: linear-gradient(90deg, #1e3a5f 0%, #29517f 100%);
+  border: 1px solid #3b648f;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #24466f 0%, #326395 100%);
+  border-color: #c9a227;
+}
+
+.btn-warning {
+  background: linear-gradient(90deg, #c9a227 0%, #e0b83a 100%);
+  border: 1px solid #d8b13a;
+  color: #1b1b1b;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(90deg, #b7921f 0%, #d4aa2b 100%);
+  border-color: #f0c54d;
+  color: #111111;
+}
+
+.btn-danger {
+  background: linear-gradient(90deg, #8b1e2d 0%, #b12639 100%);
+  border: 1px solid #c73a4f;
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(90deg, #9f2333 0%, #c92d43 100%);
+  border-color: #df4a5f;
+}
+
+/* Inputs y selects */
+.form-control,
+.form-select {
+  background-color: #0f1a29;
+  border: 1px solid #35557d;
+  color: #f8f9fa;
+  border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #102035;
+  color: #ffffff;
+  border-color: #c9a227;
+  box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.15);
+}
+
+.form-control::placeholder {
+  color: #91a4bb;
+}
+
+.table-dark {
+  --bs-table-bg: #15263b;
+  --bs-table-striped-bg: #1a2e46;
+  --bs-table-hover-bg: #223a59;
+  --bs-table-border-color: #35557d;
+  color: #f8f9fa;
+}
+
+.table thead th {
+  color: #f4d77b;
+  border-bottom: 1px solid #4a6a91;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.4px;
+}
+
+.topbar::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 3px;
+  background: linear-gradient(90deg, #aa151b 0%, #c9a227 50%, #aa151b 100%);
+}
+
+.topbar {
+  position: relative;
 }

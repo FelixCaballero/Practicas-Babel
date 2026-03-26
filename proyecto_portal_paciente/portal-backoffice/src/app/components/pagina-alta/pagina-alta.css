@@ -1,7 +1,7 @@
 :host {
   display: block;
   min-height: 100vh;
-  background-color: #2f323d;
+  background: linear-gradient(180deg, #2f323d 0%, #383c48 100%);
   padding: 24px;
   color: #f5f5f5;
 }
@@ -11,17 +11,17 @@
 }
 
 .card {
-  background-color: #31343f;
-  border: 1px solid #3d404c;
+  background-color: #343844;
+  border: 1px solid #4c5160;
   border-radius: 14px;
-  box-shadow: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
   overflow: hidden;
 }
 
 .card-header {
   background-color: transparent;
-  border-bottom: none;
-  padding: 1.75rem 2rem 0.5rem 2rem;
+  border-bottom: 1px solid #4c5160;
+  padding: 1.75rem 2rem 1rem 2rem;
 }
 
 .card-header h4 {
@@ -35,7 +35,7 @@
 .subtitulo {
   margin-top: 0.5rem;
   margin-bottom: 0;
-  color: #b7bcc8;
+  color: #d0d5df;
   font-size: 0.95rem;
   font-weight: 400;
 }
@@ -45,7 +45,7 @@
 }
 
 .form-label {
-  color: #f1f3f5;
+  color: #ffffff;
   font-weight: 700;
   font-size: 0.95rem;
   margin-bottom: 0.65rem;
@@ -54,9 +54,9 @@
 .form-control,
 .form-select,
 textarea.form-control {
-  background-color: #1c1e24;
+  background-color: #23262e;
   color: #ffffff;
-  border: 1px solid #4b4f5c;
+  border: 1px solid #666c7a;
   border-radius: 10px;
   min-height: 54px;
   padding: 0.85rem 1rem;
@@ -72,22 +72,22 @@ textarea.form-control {
 
 .form-control::placeholder,
 textarea.form-control::placeholder {
-  color: #8c919d;
+  color: #c4c9d4;
   opacity: 1;
 }
 
 .form-control:focus,
 .form-select:focus,
 textarea.form-control:focus {
-  background-color: #1c1e24;
+  background-color: #23262e;
   color: #ffffff;
-  border-color: #666c7a;
-  box-shadow: 0 0 0 0.12rem rgba(255, 255, 255, 0.08);
+  border-color: #8a91a1;
+  box-shadow: 0 0 0 0.18rem rgba(255, 255, 255, 0.10);
 }
 
 .form-control[readonly] {
-  background-color: #23262e;
-  color: #cfd3dc;
+  background-color: #2a2e37;
+  color: #e0e4ec;
   cursor: not-allowed;
 }
 
@@ -119,14 +119,14 @@ textarea.form-control:focus {
 
 .btn-outline-secondary {
   background-color: transparent;
-  border: 1px solid #676c79;
-  color: #e2e5eb;
+  border: 1px solid #8b91a0;
+  color: #f0f2f6;
 }
 
 .btn-outline-secondary:hover,
 .btn-outline-secondary:focus {
-  background-color: #3b3f4a;
-  border-color: #7a808e;
+  background-color: #4a4f5d;
+  border-color: #a1a8b8;
   color: #ffffff;
 }
 
@@ -141,6 +141,93 @@ a.btn {
   --bs-gutter-y: 1.5rem;
 }
 
+/* ===== Editor enriquecido (Quill / ngx-quill) ===== */
+:host ::ng-deep .ql-toolbar.ql-snow {
+  background-color: #2b2f38;
+  border: 1px solid #666c7a;
+  border-bottom: 1px solid #7a8191;
+  color: #ffffff;
+}
+
+:host ::ng-deep .ql-container.ql-snow {
+  background-color: #23262e;
+  border: 1px solid #666c7a;
+  color: #ffffff;
+}
+
+:host ::ng-deep .ql-editor {
+  background-color: #23262e;
+  color: #ffffff;
+  min-height: 220px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+:host ::ng-deep .ql-editor.ql-blank::before {
+  color: #d0d5df;
+  opacity: 1;
+  font-style: normal;
+}
+
+:host ::ng-deep .ql-snow .ql-stroke {
+  stroke: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-fill {
+  fill: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-label {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-options {
+  background-color: #2b2f38;
+  border: 1px solid #666c7a;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-item {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-label:hover,
+:host ::ng-deep .ql-snow .ql-picker-item:hover,
+:host ::ng-deep .ql-snow .ql-picker-item.ql-selected {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow button:hover,
+:host ::ng-deep .ql-snow button:focus,
+:host ::ng-deep .ql-snow button.ql-active,
+:host ::ng-deep .ql-snow .ql-picker-label:hover,
+:host ::ng-deep .ql-snow .ql-picker-label.ql-active {
+  background-color: #3a3f4b;
+  border-radius: 6px;
+}
+
+:host ::ng-deep .ql-snow button:hover .ql-stroke,
+:host ::ng-deep .ql-snow button:focus .ql-stroke,
+:host ::ng-deep .ql-snow button.ql-active .ql-stroke,
+:host ::ng-deep .ql-snow .ql-picker-label:hover .ql-stroke,
+:host ::ng-deep .ql-snow .ql-picker-label.ql-active .ql-stroke {
+  stroke: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow button:hover .ql-fill,
+:host ::ng-deep .ql-snow button:focus .ql-fill,
+:host ::ng-deep .ql-snow button.ql-active .ql-fill {
+  fill: #ffffff !important;
+}
+
+:host ::ng-deep .ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: none;
+}
+
+/* Ajustes responsive */
 @media (max-width: 992px) {
   .card-header h4 {
     font-size: 1.8rem;
