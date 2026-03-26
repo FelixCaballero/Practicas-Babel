@@ -1,0 +1,45 @@
+<div class="dashboard-wrapper">
+  <header class="main-header">
+    <h1>Hospital Central - Portal del Paciente</h1>
+    <button class="btn-exit" (click)="logout()">Salir</button>
+  </header>
+
+  <div class="main-container">
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <!-- Inicio -->
+          <li class="sidebar-home" [routerLink]="['/dashboard/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <span class="sidebar-icon"></span> Inicio
+          </li>
+
+          <!-- Links de gestión (6 Menús) -->
+          <li class="sidebar-admin-item" [routerLink]="['/dashboard/alta-menu']" routerLinkActive="active">
+            <span class="sidebar-icon"></span> Alta Menú
+          </li>
+          <li class="sidebar-admin-item" [routerLink]="['/dashboard/mod-menu']" routerLinkActive="active">
+            <span class="sidebar-icon"></span> Consulta Menús
+          </li>
+          <li class="sidebar-admin-item" [routerLink]="['/dashboard/alta-pagina']" routerLinkActive="active">
+            <span class="sidebar-icon"></span> Alta Página
+          </li>
+          <li class="sidebar-admin-item" [routerLink]="['/dashboard/mod-pagina']" routerLinkActive="active">
+            <span class="sidebar-icon"></span> Consulta Páginas
+          </li>
+          <li class="sidebar-admin-item" [routerLink]="['/dashboard/consulta-menu']" routerLinkActive="active">
+            <span class="sidebar-icon"></span> Consulta Guiada
+          </li>
+          <li class="sidebar-admin-item" [routerLink]="['/dashboard/consulta-arbol']" routerLinkActive="active">
+            <span class="sidebar-icon"></span> Consulta Árbol
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- ===== CONTENIDO CENTRAL ===== -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>
