@@ -1,0 +1,37 @@
+<div>
+  <h2>Gestión: {{ isEditPagina ? 'Modificar Página' : 'Alta de Página' }}</h2>
+  <form #paginaForm="ngForm">
+    <div class="form-grid">
+      <div style="display:flex; flex-direction:column; gap:4px; width: 100%;">
+        <input type="text" [(ngModel)]="nuevaPagina.titulo" name="tit" placeholder="Título" required minlength="3" maxlength="120" #titulo="ngModel">
+        <span *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)" style="color: red; font-size: 0.85em;">El título es obligatorio (mínimo 3 caracteres).</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px; width: 100%;">
+        <input type="text" [(ngModel)]="nuevaPagina.descripcion" name="desc" placeholder="Descripción" required maxlength="120" #descripcion="ngModel">
+        <span *ngIf="descripcion.invalid && (descripcion.dirty || descripcion.touched)" style="color: red; font-size: 0.85em;">La descripción es obligatoria.</span>
+      </div>
+    </div>
+    <div class="form-grid">
+      <div style="display:flex; flex-direction:column; gap:4px; width: 100%;">
+        <select [(ngModel)]="nuevaPagina.idLang" name="lang" required #lang="ngModel" style="padding: 10px; border-radius: 4px; border: 1px solid #ccc; background-color: white; width: 100%;">
+          <option value="" disabled selected>Seleccione Idioma</option>
+          <option value="1">Inglés (1)</option>
+          <option value="2">Catalán (2)</option>
+          <option value="3">Valenciano (3)</option>
+          <option value="4">Gallego (4)</option>
+        </select>
+        <span *ngIf="lang.invalid && (lang.dirty || lang.touched)" style="color: red; font-size: 0.85em;">Debes seleccionar un idioma.</span>
+      </div>
+      <input type="text" [(ngModel)]="nuevaPagina.migasPan" name="migas" placeholder="Migas de pan (ej: Inicio > Sección)">
+    </div>
+    <div style="display:flex; flex-direction:column; gap:4px; width: 100%; margin-top: 15px;">
+      <quill-editor [(ngModel)]="nuevaPagina.pagina" name="cont" required #contenido="ngModel" [modules]="quillModules" theme="snow" placeholder="Escribe el contenido HTML aquí..." style="display: block; min-height: 250px; background: white; margin-bottom: 25px;"></quill-editor>
+      <span *ngIf="contenido.invalid && (contenido.dirty || contenido.touched)" style="color: red; font-size: 0.85em;">El contenido es obligatorio.</span>
+    </div>
+    
+    <div style="margin-top: 15px;">
+      <button type="button" (click)="guardarPagina()" class="btn-save" [disabled]="paginaForm.invalid" [style.opacity]="paginaForm.invalid ? '0.5' : '1'">{{ isEditPagina ? 'Actualizar Página' : 'Guardar Página' }}</button>
+      <button type="button" class="btn-exit" (click)="cancelar()" style="margin-left: 10px;">Cancelar</button>
+    </div>
+  </form>
+</div>
