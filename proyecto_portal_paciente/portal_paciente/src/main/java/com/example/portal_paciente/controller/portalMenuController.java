@@ -3,9 +3,8 @@ package com.example.portal_paciente.controller;
 import com.example.portal_paciente.DTO.portalMenuCreateDTO;
 import com.example.portal_paciente.DTO.portalMenuDTO;
 import com.example.portal_paciente.DTO.portalMenuUpdateDTO;
-import com.example.portal_paciente.model.portalMenu;
 import com.example.portal_paciente.service.portalMenuService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,14 +14,16 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api/portal/menu")
 @CrossOrigin(origins = "http://localhost:4200")
+@RequiredArgsConstructor
 public class portalMenuController {
-    @Autowired
-    private portalMenuService portalMenuService;
+
+    private final portalMenuService portalMenuService;
 
     @PostMapping("/create")
     public ResponseEntity<portalMenuDTO> save(@RequestBody portalMenuCreateDTO portalMenu) {
         return ResponseEntity.ok(portalMenuService.save(portalMenu));
     }
+
     @GetMapping()
     public ResponseEntity<List<portalMenuDTO>> findAll() {
         return ResponseEntity.ok(portalMenuService.findAll());
@@ -32,15 +33,18 @@ public class portalMenuController {
     public ResponseEntity<portalMenuDTO> findById(@PathVariable Integer id) {
         return ResponseEntity.ok(portalMenuService.findById(id));
     }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteById(@PathVariable Integer id) {
         portalMenuService.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<portalMenuDTO> update(@PathVariable Integer id, @RequestBody portalMenuUpdateDTO menu) {
         return ResponseEntity.ok(portalMenuService.update(id, menu));
     }
+
     @GetMapping("/search")
     public ResponseEntity<portalMenuDTO> search(@RequestParam String filtro) {
         try {
@@ -56,6 +60,7 @@ public class portalMenuController {
             return ResponseEntity.badRequest().build();
         }
     }
+
     @GetMapping("/nivel/{nivel}")
     public ResponseEntity<List<portalMenuDTO>> getByNivel(@PathVariable Integer nivel) {
         return ResponseEntity.ok(portalMenuService.findByNivel(nivel));

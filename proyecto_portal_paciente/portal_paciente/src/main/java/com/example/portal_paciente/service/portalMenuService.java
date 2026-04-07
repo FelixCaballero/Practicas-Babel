@@ -3,16 +3,13 @@ package com.example.portal_paciente.service;
 import com.example.portal_paciente.DTO.portalMenuCreateDTO;
 import com.example.portal_paciente.DTO.portalMenuDTO;
 import com.example.portal_paciente.DTO.portalMenuUpdateDTO;
-import com.example.portal_paciente.DTO.portalPaginaDTO;
 import com.example.portal_paciente.model.portalMenu;
-import com.example.portal_paciente.model.portalPagina;
 import com.example.portal_paciente.repository.portalMenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class portalMenuService {
