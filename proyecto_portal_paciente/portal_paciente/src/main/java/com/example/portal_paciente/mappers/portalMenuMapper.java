@@ -19,5 +19,5 @@ public interface portalMenuMapper {
 
     portalMenu toEntity(portalMenuCreateDTO portalMenuCreateDTODTO);
 
-    void updateMenu (portalMenuUpdateDTO portalMenuUpdateDTO, @MappingTarget portalMenu portalMenu);
+    void updateMenuFromDTO (portalMenuUpdateDTO portalMenuUpdateDTO, @MappingTarget portalMenu portalMenu);
 }
