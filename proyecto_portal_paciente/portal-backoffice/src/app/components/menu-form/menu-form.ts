@@ -32,7 +32,7 @@ export class MenuForm implements OnInit {
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
 
-    if (idParam === null || isNaN(Number(idParam))) {
+    if (idParam == null || isNaN(Number(idParam))) {
       console.error('ID inválido para modificar menú');
       this.router.navigateByUrl('/layout/consultar-menu');
       return;

@@ -1,5 +1,7 @@
 package com.example.portal_paciente.controller;
-import com.example.portal_paciente.model.portalPagina;
+import com.example.portal_paciente.DTO.portalPaginaCreateDTO;
+import com.example.portal_paciente.DTO.portalPaginaDTO;
+import com.example.portal_paciente.DTO.portalPaginaUpdateDTO;
 import com.example.portal_paciente.service.portalPaginaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +18,16 @@ public class portalPaginaController {
     private portalPaginaService portalPaginaService;
 
     @PostMapping("/create")
-    public ResponseEntity<portalPagina> save(@RequestBody portalPagina portalPagina) {
+    public ResponseEntity<portalPaginaDTO> save(@RequestBody portalPaginaCreateDTO portalPagina) {
         return ResponseEntity.ok(portalPaginaService.save(portalPagina));
     }
     @GetMapping()
-    public ResponseEntity<List<portalPagina>> findAll() {
+    public ResponseEntity<List<portalPaginaDTO>> findAll() {
         return ResponseEntity.ok(portalPaginaService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<portalPagina> findById(@PathVariable Integer id) {
+    public ResponseEntity<portalPaginaDTO> findById(@PathVariable Integer id) {
         return ResponseEntity.ok(portalPaginaService.findById(id));
     }
     @DeleteMapping("/delete/{id}")
@@ -34,17 +36,17 @@ public class portalPaginaController {
         return ResponseEntity.ok().build();
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<portalPagina> update(@PathVariable Long id,@RequestBody portalPagina portalPagina) {
-        return ResponseEntity.ok(portalPaginaService.update(portalPagina));
+    public ResponseEntity<portalPaginaDTO> update(@PathVariable Integer id,@RequestBody portalPaginaUpdateDTO portalPagina) {
+        return ResponseEntity.ok(portalPaginaService.update(id,portalPagina));
     }
     @GetMapping("/search/{filtro}")
-    public ResponseEntity<portalPagina> search(@PathVariable String filtro) {
-        Optional<portalPagina> pagina;
+    public ResponseEntity<portalPaginaDTO> search(@PathVariable String filtro) {
+        Optional<portalPaginaDTO> pagina;
 
         if (filtro.matches("\\d+")) {
             pagina = Optional.ofNullable(portalPaginaService.findById((int) Long.parseLong(filtro)));
         } else {
-            pagina = portalPaginaService.findByDescripcion(filtro);
+            pagina = Optional.ofNullable(portalPaginaService.findByDescripcion(filtro));
         }
 
         return pagina.map(ResponseEntity::ok)

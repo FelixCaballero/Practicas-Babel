@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface portalPaginaRepository extends JpaRepository<portalPagina,Integer> {
-    Optional<portalPagina> findByDescripcionContainingIgnoreCase(String filtro);
+    portalPagina findByDescripcionContainingIgnoreCase(String filtro);
 }

@@ -29,7 +29,6 @@ export class ConsultaMenu {
     });
   }
   update(): void {
-    console.log('CLICK MODIFICAR', this.resultado);
     if (this.resultado?.id) {
       this.router.navigateByUrl(`/layout/mod-menu/${this.resultado.id}`);
     } else {
@@ -37,7 +36,6 @@ export class ConsultaMenu {
     }
   }
   delete(): void {
-    console.log('CLICK ELIMINAR', this.resultado);
     if (this.resultado?.id && confirm('¿Seguro que quieres eliminar este menú?')) {
       this.service.delete(this.resultado.id).subscribe({
         next: () => {

@@ -10,8 +10,7 @@ export class Auth {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http
-      .post<boolean>(
+    return this.http.post<boolean>(
         `${this.url}/login`, { usuario: username, password }, { /*1*/ observe: 'response' }) //1: respuesta HTTP completa
       .pipe(
         //sirve para hacer una comprobacion sobre la respuesta HTTP

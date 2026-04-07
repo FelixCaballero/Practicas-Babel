@@ -1,5 +1,8 @@
 package com.example.portal_paciente.controller;
 
+import com.example.portal_paciente.DTO.portalMenuCreateDTO;
+import com.example.portal_paciente.DTO.portalMenuDTO;
+import com.example.portal_paciente.DTO.portalMenuUpdateDTO;
 import com.example.portal_paciente.model.portalMenu;
 import com.example.portal_paciente.service.portalMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,16 +20,16 @@ public class portalMenuController {
     private portalMenuService portalMenuService;
 
     @PostMapping("/create")
-    public ResponseEntity<portalMenu> save(@RequestBody portalMenu portalMenu) {
+    public ResponseEntity<portalMenuDTO> save(@RequestBody portalMenuCreateDTO portalMenu) {
         return ResponseEntity.ok(portalMenuService.save(portalMenu));
     }
     @GetMapping()
-    public ResponseEntity<List<portalMenu>> findAll() {
+    public ResponseEntity<List<portalMenuDTO>> findAll() {
         return ResponseEntity.ok(portalMenuService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<portalMenu> findById(@PathVariable Integer id) {
+    public ResponseEntity<portalMenuDTO> findById(@PathVariable Integer id) {
         return ResponseEntity.ok(portalMenuService.findById(id));
     }
     @DeleteMapping("/delete/{id}")
@@ -35,16 +38,16 @@ public class portalMenuController {
         return ResponseEntity.ok().build();
     }
     @PutMapping("/update/{id}")
-    public ResponseEntity<portalMenu> update(@PathVariable Long id, @RequestBody portalMenu menu) {
-        return ResponseEntity.ok(portalMenuService.update(menu));
+    public ResponseEntity<portalMenuDTO> update(@PathVariable Integer id, @RequestBody portalMenuUpdateDTO menu) {
+        return ResponseEntity.ok(portalMenuService.update(id, menu));
     }
     @GetMapping("/search")
-    public ResponseEntity<portalMenu> search(@RequestParam String filtro) {
+    public ResponseEntity<portalMenuDTO> search(@RequestParam String filtro) {
         try {
             Integer id = Integer.parseInt(filtro);
-            Optional<portalMenu> menuOpt = Optional.ofNullable(portalMenuService.findById(id));
+            Optional<portalMenuDTO> menuOpt = Optional.ofNullable(portalMenuService.findById(id));
 
-            if (menuOpt.isPresent()) {
+            if (menuOpt.isPresent()) {//retorna true o false
                 return ResponseEntity.ok(menuOpt.get());
             } else {
                 return ResponseEntity.notFound().build();
@@ -54,13 +57,12 @@ public class portalMenuController {
         }
     }
     @GetMapping("/nivel/{nivel}")
-    public ResponseEntity<List<portalMenu>> getByNivel(@PathVariable Integer nivel) {
-        List<portalMenu> menus = portalMenuService.findByNivel(nivel);
-        return ResponseEntity.ok(menus);
+    public ResponseEntity<List<portalMenuDTO>> getByNivel(@PathVariable Integer nivel) {
+        return ResponseEntity.ok(portalMenuService.findByNivel(nivel));
     }
 
     @GetMapping("/padre/{padre}")
-    public ResponseEntity<List<portalMenu>> findByPadre(@PathVariable Integer padre) {
+    public ResponseEntity<List<portalMenuDTO>> findByPadre(@PathVariable Integer padre) {
         return ResponseEntity.ok(portalMenuService.findByPadre(padre));
     }
 

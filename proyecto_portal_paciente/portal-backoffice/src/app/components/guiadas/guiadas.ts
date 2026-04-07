@@ -22,7 +22,6 @@ export class Guiadas implements OnInit {
   cargarNivel1(): void {
     this.service.getByNivel(1).subscribe({
       next: (data) => {
-        console.log('Nivel 1:', data);
         this.niveles = [{ opciones: data, seleccionado: null }];
       },
       error: (err) => console.error('Error nivel 1:', err),
@@ -36,6 +35,7 @@ export class Guiadas implements OnInit {
 
     this.menuFinal = this.niveles[index].opciones.find((m) => m.id === idSeleccionado) || null;
     this.niveles = this.niveles.slice(0, index + 1);
+    //slice devuelve una parte determinada del array
 
     this.service.getByPadre(idSeleccionado).subscribe({
       next: (hijos) => {
