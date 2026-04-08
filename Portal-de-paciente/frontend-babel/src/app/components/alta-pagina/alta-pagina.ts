@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Pagina } from '../../models/pagina';
 import { PortalService } from '../../services/portal.service';
@@ -9,41 +9,52 @@ import { QuillModule } from 'ngx-quill';
 @Component({
   selector: 'app-alta-pagina',
   standalone: true,
-  imports: [CommonModule, FormsModule, QuillModule],
+  imports: [CommonModule, ReactiveFormsModule, QuillModule],
   templateUrl: './alta-pagina.html',
 
 })
 export class AltaPaginaComponent implements OnInit {
-  nuevaPagina: Pagina = this.initPagina();
+  paginaForm: FormGroup;
   isEditPagina: boolean = false;
+  idPaginaEdit: string = '';
 
   quillModules = {
     toolbar: [
-      ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+      ['bold', 'italic', 'underline', 'strike'],
       ['blockquote', 'code-block'],
-      [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+      [{ 'header': 1 }, { 'header': 2 }],
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-      [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-      [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-      [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+      [{ 'script': 'sub'}, { 'script': 'super' }],
+      [{ 'indent': '-1'}, { 'indent': '+1' }],
+      [{ 'size': ['small', false, 'large', 'huge'] }],
+      [{ 'color': [] }, { 'background': [] }],
       [{ 'align': [] }],
-      ['clean'],                                         // remove formatting button
+      ['clean'],
       ['link', 'image', 'video']
     ]
   };
 
-  constructor(private portalService: PortalService, private router: Router) {
+  constructor(private fb: FormBuilder, private portalService: PortalService, private router: Router) {
+    this.paginaForm = this.fb.group({
+      titulo: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(120)]],
+      descripcion: ['', [Validators.required, Validators.maxLength(120)]],
+      idLang: ['', Validators.required],
+      migasPan: [''],
+      pagina: ['', Validators.required]
+    });
+
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       if (navigation.extras.state['pagina']) {
-        this.nuevaPagina = { ...navigation.extras.state['pagina'] };
+        const pag = navigation.extras.state['pagina'];
+        this.idPaginaEdit = pag.idPagina;
+        this.paginaForm.patchValue(pag);
         this.isEditPagina = navigation.extras.state['isEdit'] ?? true;
       }
       if (navigation.extras.state['lang']) {
         const lang = navigation.extras.state['lang'];
         const mapLang: { [key: string]: string } = { 'EN': '1', 'CA': '2', 'VA': '3', 'GL': '4' };
-        this.nuevaPagina.idLang = mapLang[lang] || '';
+        this.paginaForm.patchValue({ idLang: mapLang[lang] || '' });
         this.isEditPagina = false;
       }
     }
@@ -51,14 +62,21 @@ export class AltaPaginaComponent implements OnInit {
 
   ngOnInit() {}
 
-  initPagina(): Pagina {
-    return { idPagina: '', descripcion: '', pagina: '', migasPan: '', titulo: '', idLang: '' };
-  }
-
   guardarPagina() {
+    if (this.paginaForm.invalid) {
+      this.paginaForm.markAllAsTouched();
+      return;
+    }
+
+    const valueStr = this.paginaForm.value;
+    const saveObj: Pagina = {
+      idPagina: this.idPaginaEdit,
+      ...valueStr
+    };
+
     const ob$ = this.isEditPagina 
-      ? this.portalService.updatePagina(this.nuevaPagina.idPagina, this.nuevaPagina) 
-      : this.portalService.savePagina(this.nuevaPagina);
+      ? this.portalService.updatePagina(this.idPaginaEdit, saveObj) 
+      : this.portalService.savePagina(saveObj);
 
     ob$.subscribe({
       next: () => {
