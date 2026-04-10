@@ -10,10 +10,6 @@ import java.util.Optional;
 @Repository
 public interface portalMenuRepository extends JpaRepository<portalMenu,Integer> {
 
-    List<portalMenu> findByIdPadreIsNullOrderByPosicionRaizAsc();
-
-    Optional<portalMenu> findByNomMenuContainingIgnoreCase(String filtro);
-
     List<portalMenu> findByNivel(Integer nivel);
 
     List<portalMenu> findByIdPadre(Integer idPadre);

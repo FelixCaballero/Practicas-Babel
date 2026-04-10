@@ -29,7 +29,8 @@ export class ArbolMenus implements OnInit {
   cargarMenusNivel1(): void {
     this.service.getByNivel(1).subscribe({
       next: (data) => {
-        this.menus = data.map((menu) => ({
+        const soloNivel1 = data.filter(menu => menu.nivel === 1);
+        this.menus = soloNivel1.map((menu) => ({
           ...menu,
           children: [],
         }));

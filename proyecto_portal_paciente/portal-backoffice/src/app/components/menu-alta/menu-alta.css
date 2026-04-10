@@ -115,3 +115,7 @@ a.btn {
     padding-right: 1rem;
   }
 }
+.alert-danger {
+  border-radius: 10px;
+  font-weight: 600;
+}

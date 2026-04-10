@@ -258,3 +258,12 @@ a.btn {
     flex-direction: column;
   }
 }
+.mensaje-error {
+  background-color: #842029;
+  color: #ffffff;
+  border: 1px solid #f1aeb5;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}

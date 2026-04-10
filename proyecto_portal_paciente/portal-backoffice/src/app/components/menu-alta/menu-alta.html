@@ -8,6 +8,10 @@
         </div>
 
         <div class="card-body">
+          <div *ngIf="mensajeError" class="alert alert-danger mb-3">
+            {{ mensajeError }}
+          </div>
+
           <form (ngSubmit)="onSubmit()" #menuForm="ngForm">
             <div class="row g-4">
               <div class="col-md-6">
