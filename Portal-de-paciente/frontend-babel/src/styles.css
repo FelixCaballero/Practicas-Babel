@@ -1,0 +1,211 @@
+@import "quill/dist/quill.snow.css";
+
+/* ========================================================================= */
+/*                              GLOBAL STYLES                                */
+/* ========================================================================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* --- Global Dashboard Styles --- */
+
+/* Migas de pan (Breadcrumb) */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+}
+
+.breadcrumb-item {
+  color: #2e7d32;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.breadcrumb-item:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.breadcrumb-active {
+  color: #5f6368;
+  cursor: default;
+  font-weight: 500;
+}
+
+.breadcrumb-item.breadcrumb-active:hover {
+  text-decoration: none;
+}
+
+.breadcrumb-sep {
+  color: #9aa0a6;
+  user-select: none;
+}
+
+/* Enlace de descripción de página */
+.pagina-link {
+  color: #2e7d32;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.pagina-link:hover {
+  text-decoration: underline;
+}
+
+/* Renderizador de contenido HTML del campo CLOB */
+.content-html {
+  background: white;
+  padding: 20px 28px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  line-height: 1.7;
+}
+
+/* Estado vacío */
+.empty-state {
+  background: white;
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  color: #9aa0a6;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Admin card, grid, table, buttons */
+.admin-card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+.form-group label { display: block; font-size: 0.85rem; color: #5f6368; font-weight: 600; margin-bottom: 4px; }
+input, textarea, select { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+.custom-table { width: 100%; border-collapse: collapse; background: white; }
+.custom-table th, .custom-table td { padding: 12px; border: 1px solid #eee; text-align: left; }
+.custom-table th { background-color: #f1f3f4; font-weight: 600; color: #5f6368; }
+.custom-table thead th { position: sticky; top: 0; background-color: #ffffff; z-index: 10; box-shadow: 0 2px 2px rgba(0,0,0,0.05); }
+
+tr.selected { background-color: #f1f8e9 !important; }
+
+.btn-save { background: #4caf50; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+.btn-edit { background: #4caf50; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+.btn-delete { background: #d93025; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+
+/* Buttons lang & link */
+.btn-lang { background: #1976d2; color: white; border: none; padding: 4px 8px; border-radius: 3px; cursor: pointer; margin-right: 4px; font-size: 0.8rem;}
+.btn-lang:hover { background: #1565c0; }
+.btn-link { background: #f1f3f4; color: #2e7d32; border: 1px solid #2e7d32; padding: 4px 8px; border-radius: 3px; cursor: pointer; font-size: 0.8rem; font-weight: bold;}
+.btn-link:hover { background: #e8f5e9; }
+
+
+/* ========================================================================= */
+/*                              LOGIN COMPONENT                              */
+/* ========================================================================= */
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e8f5e9; /* Verde pastel suave */
+}
+
+.login-card {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card .header { text-align: center; margin-bottom: 2rem; }
+.login-card .header h2 { color: #2e7d32; margin: 0; }
+.login-card .input-group { margin-bottom: 1.5rem; }
+.login-card .input-group label { display: block; margin-bottom: 0.5rem; color: #5f6368; font-size: 0.9rem; }
+.login-card input { width: 100%; padding: 12px; border: 1px solid #dadce0; border-radius: 6px; box-sizing: border-box; }
+.login-card input:focus { outline: none; border-color: #4caf50; }
+.btn-login { width: 100%; padding: 12px; background-color: #4caf50; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+.btn-login:hover { background-color: #388e3c; }
+.error-msg { color: #d93025; text-align: center; margin-top: 1rem; font-size: 0.85rem; }
+
+
+/* ========================================================================= */
+/*                            DASHBOARD COMPONENT                            */
+/* ========================================================================= */
+.dashboard-wrapper { display: flex; flex-direction: column; height: 100vh; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; }
+.main-header { background-color: #c8e6c9; color: #1b5e20; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 10; }
+.main-header h1 { margin: 0; font-size: 1.5rem; font-weight: 500; }
+.btn-exit { background-color: #d93025; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+.btn-exit:hover { background-color: #b3261e; }
+.main-container { display: flex; flex: 1; overflow: hidden; }
+
+/* Sidebar */
+.sidebar { width: 250px; background-color: #ffffff; border-right: 1px solid #dadce0; padding-top: 0.5rem; display: flex; flex-direction: column; overflow-y: auto; }
+.sidebar ul { list-style: none; padding: 0; margin: 0; flex: 1; }
+.sidebar-home { padding: 12px 24px; cursor: pointer; transition: all 0.2s; color: #2e7d32; font-weight: 600; font-size: 1rem; border-left: 3px solid transparent; }
+.sidebar-home:hover { background-color: #e8f5e9; }
+.sidebar-home.active { background-color: #e8f5e9; border-left: 3px solid #2e7d32; }
+
+/* Sidebar menu items */
+.sidebar-menu-item { padding: 11px 20px 11px 28px; cursor: pointer; transition: all 0.2s; color: #202124; font-weight: 500; border-left: 3px solid transparent; }
+.sidebar-menu-item:hover { background-color: #f1f3f4; color: #2e7d32; }
+.sidebar-menu-item.active { background-color: #e8f5e9; color: #2e7d32; border-left: 3px solid #2e7d32; }
+
+/* Sidebar admin items */
+.sidebar-separator { padding: 8px 16px 4px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #9aa0a6; border-top: 1px solid #e8eaed; margin-top: 8px; cursor: default; pointer-events: none; }
+.sidebar-admin-item { padding: 9px 20px 9px 28px; cursor: pointer; transition: all 0.2s; color: #80868b; font-size: 0.88rem; border-left: 3px solid transparent; }
+.sidebar-admin-item:hover { background-color: #f1f3f4; color: #2e7d32; }
+.sidebar-admin-item.active { background-color: #e8f5e9; color: #2e7d32; border-left: 3px solid #2e7d32; font-weight: 600; }
+.sidebar-icon { margin-right: 6px; font-size: 0.9rem; }
+
+/* Dashboard Content */
+.content { flex: 1; padding: 2rem; background-color: #f8f9fa; overflow-y: auto; }
+
+
+/* ========================================================================= */
+/*                              HOME COMPONENT                               */
+/* ========================================================================= */
+.home-view { text-align: center; margin-top: 2rem; }
+.home-images { display: flex; justify-content: center; align-items: center; gap: 3rem; margin-top: 3rem; }
+.home-img { max-width: 250px; height: auto; }
+
+
+/* ========================================================================= */
+/*                   TABLE ACTIONS & BUTTON OVERRIDES                        */
+/* ========================================================================= */
+.table-actions-floating { position: fixed; bottom: 25px; right: 25px; left: auto !important; display: flex; align-items: center; gap: 15px; background: white; padding: 12px 20px; border-radius: 8px; border: 1px solid #cfd8dc; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 1000; }
+.table-actions-floating button:disabled { background-color: #e0e0e0 !important; color: #9e9e9e !important; cursor: not-allowed !important; box-shadow: none !important; }
+
+.btn-lang.lang-exists { background-color: #2196F3 !important; color: white !important; border: none !important; }
+.btn-lang.lang-missing { background-color: #f44336 !important; color: white !important; border: none !important; }
+
+/* Consulta menu override buttons */
+/* The class .btn-edit and .btn-delete from global are overwritten by this if more specificity is needed */
+.selectors-container select { border: 1px solid #cbd5e0; transition: border-color 0.2s; }
+.selectors-container select:focus { outline: none; border-color: #3182ce; box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1); }
+.btn-edit:disabled, .btn-delete:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-edit:hover:not(:disabled), .btn-delete:hover:not(:disabled) { opacity: 0.9; }
+
+
+/* ========================================================================= */
+/*                          CONSULTA ARBOL COMPONENT                         */
+/* ========================================================================= */
+.tree-container { margin-top: 20px; padding: 20px; background: white; }
+.tree-node { position: relative; margin: 0; padding-left: 24px; }
+.tree-node::before { content: ''; position: absolute; left: 0; top: -6px; bottom: 0px; border-left: 1px solid #b0bec5; }
+.tree-node::after { content: ''; position: absolute; left: 0; top: 18px; width: 18px; border-top: 1px solid #b0bec5; }
+.tree-node:last-child::before { bottom: auto; height: 24px; }
+.tree-container > .tree-node::before, .tree-container > .tree-node::after { display: none !important; }
+.tree-container > .tree-node { padding-left: 0; margin-top: 15px; }
+
+.tree-node-content { display: flex; align-items: center; padding: 8px 0; background: none; border: none; cursor: pointer; border-radius: 4px; transition: background-color 0.2s; }
+.tree-node-content:hover { background-color: #f7fbfa; }
+.tree-node-content.selected { background-color: #f1f8e9 !important; }
+
+.tree-bullet { color: #b0bec5; margin-right: 8px; font-size: 0.9rem; }
+.tree-label { font-weight: 500; font-size: 1.1rem; color: #263238; }
+.tree-children { margin-left: 20px; padding-left: 20px; }
+
+.tree-actions-floating { position: fixed; bottom: 25px; right: 25px !important; left: auto !important; display: flex; align-items: center; gap: 15px; background: white; padding: 12px 20px; border-radius: 8px; border: 1px solid #cfd8dc; box-shadow: 0 4px 12px rgba(0,0,0,0.12); z-index: 1000; }
+.tree-actions-floating button:disabled { background-color: #e0e0e0 !important; color: #9e9e9e !important; cursor: not-allowed !important; box-shadow: none !important; }

@@ -1,0 +1,55 @@
+<div class="admin-card" style="position: relative;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+    <h2 style="margin: 0;">Consulta Guiada</h2>
+
+    <!-- Selector de Idioma -->
+    <div>
+      <label style="font-weight: 600; margin-right: 8px;">Idioma:</label>
+      <select [(ngModel)]="idiomaSeleccionado" (change)="refrescarNiveles()" style="padding: 6px; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
+        <option value="1">EN</option>
+        <option value="2">CA</option>
+        <option value="3">VA</option>
+        <option value="4">GL</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="selectors-container" style="display: flex; gap: 20px; align-items: center; margin-bottom: 30px;">
+    <!-- Nivel 1 -->
+    <div style="flex: 1;">
+      <select [(ngModel)]="selectedL1" (change)="onL1Change()" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0; cursor: pointer;">
+        <option [ngValue]="null">-- Selecciona Raíz --</option>
+        <option *ngFor="let m of menuLevel1" [ngValue]="m">{{ m.nomMenu }}</option>
+      </select>
+    </div>
+
+    <!-- Nivel 2 -->
+    <div style="flex: 1;" *ngIf="menuLevel2.length > 0">
+      <select [(ngModel)]="selectedL2" (change)="onL2Change()" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0; cursor: pointer;">
+        <option [ngValue]="null">-- Selecciona Hijo --</option>
+        <option *ngFor="let m of menuLevel2" [ngValue]="m">{{ m.nomMenu }}</option>
+      </select>
+    </div>
+
+    <!-- Nivel 3 -->
+    <div style="flex: 1;" *ngIf="menuLevel3.length > 0">
+      <select [(ngModel)]="selectedL3" style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #cbd5e0; cursor: pointer;">
+        <option [ngValue]="null">-- Selecciona Subhijo --</option>
+        <option *ngFor="let m of menuLevel3" [ngValue]="m">{{ m.nomMenu }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Vista Previa / Detalle de Selección -->
+  <div *ngIf="actualSeleccionado" style="background: #f7fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <p><strong>Nombre:</strong> {{ actualSeleccionado.nomMenu }}</p>
+    <p><strong>Nivel:</strong> {{ actualSeleccionado.nivel }}</p>
+    <p><strong>URL:</strong> {{ actualSeleccionado.hrefMenu || '—' }}</p>
+  </div>
+
+  <!-- Botones de Acción -->
+  <div style="display: flex; gap: 10px;">
+    <button class="btn-edit" [disabled]="!actualSeleccionado" (click)="editarMenu()">Modificar</button>
+    <button class="btn-delete" [disabled]="!actualSeleccionado" (click)="borrarMenu()">Eliminar</button>
+  </div>
+</div>

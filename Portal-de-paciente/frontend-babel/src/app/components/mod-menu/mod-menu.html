@@ -1,0 +1,71 @@
+<div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+    <h3 style="margin: 0;">Consultar Menús</h3>
+    <div style="display: flex; gap: 15px; align-items: center;">
+      <!-- Selector de Idioma -->
+      <div>
+        <label style="font-weight: 600; margin-right: 5px;">Idioma:</label>
+        <select [(ngModel)]="idiomaSeleccionado" style="padding: 6px; border-radius: 4px; border: 1px solid #ccc; cursor: pointer;">
+          <option value="1">EN</option>
+          <option value="2">CA</option>
+          <option value="3">VA</option>
+          <option value="4">GL</option>
+        </select>
+      </div>
+      
+      <input type="text" [(ngModel)]="filtroMenu" placeholder="Filtrar por nombre..."
+        style="padding: 8px; border-radius: 4px; border: 1px solid #ccc; width: 250px;">
+    </div>
+  </div>
+
+  <table class="custom-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>URL</th>
+        <th>Idioma</th>
+        <th>Padre</th>
+        <th>Nivel</th>
+        <th>PosRaiz</th>
+        <th>Pos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of listaMenusFiltrada" (click)="menuSeleccionado = m" [class.selected]="menuSeleccionado === m"
+        style="cursor: pointer;">
+        <td>{{m.idMenu}}</td>
+        <td>{{m.nomMenu}}</td>
+        <td>{{m.hrefMenu}}</td>
+        <td>{{m.idLang}}</td>
+        <td>{{m.idPadre ?? '—'}}</td>
+        <td>{{m.nivel}}</td>
+        <td>{{m.posicionRaiz}}</td>
+        <td>{{m.posicion}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Acciones flotantes abajo a la izquierda -->
+  <div class="table-actions-floating">
+    <span *ngIf="menuSeleccionado" style="font-size: 0.9rem; color: #333;">Seleccionado: <strong>{{
+        menuSeleccionado.nomMenu }}</strong></span>
+    <div>
+      <button class="btn-edit" style="margin-right: 10px;" [disabled]="!menuSeleccionado"
+        (click)="menuSeleccionado && editarMenu(menuSeleccionado)">Modificar</button>
+      <button class="btn-delete" style="margin-right: 10px;" [disabled]="!menuSeleccionado"
+        (click)="menuSeleccionado && borrarMenu(menuSeleccionado)">Eliminar</button>
+
+      <span *ngIf="menuSeleccionado"
+        style="font-size: 0.9rem; color: #555; margin-left:10px; margin-right:5px;">Traducir: </span>
+      <button class="btn-lang" [disabled]="!menuSeleccionado" [class.lang-exists]="tieneTraduccion('EN')" [class.lang-missing]="!tieneTraduccion('EN')"
+        (click)="menuSeleccionado && crearTraduccionMenu(menuSeleccionado, 'EN')">EN</button>
+      <button class="btn-lang" [disabled]="!menuSeleccionado" [class.lang-exists]="tieneTraduccion('CA')" [class.lang-missing]="!tieneTraduccion('CA')"
+        (click)="menuSeleccionado && crearTraduccionMenu(menuSeleccionado, 'CA')">CA</button>
+      <button class="btn-lang" [disabled]="!menuSeleccionado" [class.lang-exists]="tieneTraduccion('VA')" [class.lang-missing]="!tieneTraduccion('VA')"
+        (click)="menuSeleccionado && crearTraduccionMenu(menuSeleccionado, 'VA')">VA</button>
+      <button class="btn-lang" [disabled]="!menuSeleccionado" [class.lang-exists]="tieneTraduccion('GL')" [class.lang-missing]="!tieneTraduccion('GL')"
+        (click)="menuSeleccionado && crearTraduccionMenu(menuSeleccionado, 'GL')">GL</button>
+    </div>
+  </div>
+</div>

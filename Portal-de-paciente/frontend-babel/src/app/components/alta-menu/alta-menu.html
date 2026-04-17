@@ -1,0 +1,53 @@
+<div>
+  <h2>Gestión: {{ isEditMenu ? 'Modificar Menú' : 'Alta de Menú' }}</h2>
+  <form #menuForm="ngForm">
+    <div class="form-grid">
+      <div style="display:flex; flex-direction:column; gap:4px; width: 100%;">
+        <input type="text" [(ngModel)]="nuevoMenu.nomMenu" name="nomM" placeholder="Nombre del Menú" required maxlength="120" #nomM="ngModel">
+        <span *ngIf="nomM.invalid && (nomM.dirty || nomM.touched)" style="color: red; font-size: 0.85em;">El nombre es obligatorio.</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:4px; width: 100%;">
+        <select [(ngModel)]="nuevoMenu.idLang" name="langM" required #langM="ngModel" style="padding: 10px; border-radius: 4px; border: 1px solid #ccc; background-color: white;">
+          <option value="" disabled selected>Seleccione Idioma</option>
+          <option value="1">Inglés (1)</option>
+          <option value="2">Catalán (2)</option>
+          <option value="3">Valenciano (3)</option>
+          <option value="4">Gallego (4)</option>
+        </select>
+        <span *ngIf="langM.invalid && (langM.dirty || langM.touched)" style="color: red; font-size: 0.85em;">Debes seleccionar un idioma.</span>
+      </div>
+    </div>
+    <div class="form-grid">
+      <input type="text" [(ngModel)]="nuevoMenu.hrefMenu" name="hrefM" placeholder="Ruta" maxlength="120">
+      <input type="number" [(ngModel)]="nuevoMenu.idPadre" name="padreM" placeholder="ID Menú Padre">
+    </div>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Nivel interior</label>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <input type="number" [(ngModel)]="nuevoMenu.nivel" name="nivelM" placeholder="Nivel" required #nivelM="ngModel">
+          <span *ngIf="nivelM.invalid && (nivelM.dirty || nivelM.touched)" style="color: red; font-size: 0.85em;">Obligatorio.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Posición Raíz (colocación base)</label>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <input type="number" [(ngModel)]="nuevoMenu.posicionRaiz" name="posRaizM" placeholder="Posición Raíz" required #posRaizM="ngModel">
+          <span *ngIf="posRaizM.invalid && (posRaizM.dirty || posRaizM.touched)" style="color: red; font-size: 0.85em;">Obligatorio.</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Posición (orden en la lista)</label>
+        <div style="display:flex; flex-direction:column; gap:4px;">
+          <input type="number" [(ngModel)]="nuevoMenu.posicion" name="posM" placeholder="Posición" required #posM="ngModel">
+          <span *ngIf="posM.invalid && (posM.dirty || posM.touched)" style="color: red; font-size: 0.85em;">Obligatorio.</span>
+        </div>
+      </div>
+    </div>
+    
+    <div style="margin-top: 15px;">
+      <button type="button" (click)="guardarMenu()" class="btn-save" [disabled]="menuForm.invalid" [style.opacity]="menuForm.invalid ? '0.5' : '1'">{{ isEditMenu ? 'Actualizar Menú' : 'Crear Menú' }}</button>
+      <button type="button" class="btn-exit" (click)="cancelar()" style="margin-left: 10px;">Cancelar</button>
+    </div>
+  </form>
+</div>
