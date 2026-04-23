@@ -17,7 +17,7 @@ public class portalPagina {
     @Column(length = 120)
     private String descripcion;
 
-    @Column(name = "pagina", columnDefinition = "LONGTEXT")
+    @Column(name = "pagina", length = 4000)
     private String pagina;
 
     @Column(name = "migas_pan", length = 120)
