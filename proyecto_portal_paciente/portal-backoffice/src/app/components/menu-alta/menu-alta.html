@@ -1,0 +1,110 @@
+<div class="container py-4">
+  <div class="row justify-content-center">
+    <div class="col-lg-10">
+      <div class="card">
+        <div class="card-header">
+          <h4>Alta de Menú</h4>
+          <p class="subtitulo">Completa la información del nuevo menú del portal</p>
+        </div>
+
+        <div class="card-body">
+          <div *ngIf="mensajeError" class="alert alert-danger mb-3">
+            {{ mensajeError }}
+          </div>
+
+          <form (ngSubmit)="onSubmit()" #menuForm="ngForm">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <label class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="menu.nomMenu"
+                  name="nomMenu"
+                  placeholder="Ej: Citas"
+                  required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Href</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="menu.hrefMenu"
+                  name="hrefMenu"
+                  placeholder="Ej: /citas"
+                  required>
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Idioma</label>
+                <select
+                  class="form-control"
+                  [(ngModel)]="menu.idLang"
+                  name="idLang"
+                  required
+                >
+                  <option value="1">Español</option>
+                  <option value=2>Inglés</option>
+                  <option value=3>Gallego</option>
+                  <option value=4>Catalan</option>
+                </select>
+              </div>
+
+
+              <div class="col-md-4">
+                <label class="form-label">Id Padre</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="menu.idPadre"
+                  name="idPadre"
+                  placeholder="Opcional">
+              </div>
+
+              <div class="col-md-4">
+                <label class="form-label">Nivel</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="menu.nivel"
+                  name="nivel"
+                  required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Posición raíz</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="menu.posicionRaiz"
+                  name="posicionRaiz"
+                  required>
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Posición</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  [(ngModel)]="menu.posicion"
+                  name="posicion"
+                  required>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-3 mt-4">
+              <a routerLink="/layout/consulta-menu" class="btn btn-outline-secondary">
+                Cancelar
+              </a>
+
+              <button type="submit" class="btn btn-success">
+                Crear menú
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

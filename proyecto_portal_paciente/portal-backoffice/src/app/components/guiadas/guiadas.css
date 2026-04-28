@@ -1,0 +1,81 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #2f323d;
+  padding: 24px;
+  color: #f5f5f5;
+}
+
+.form-card {
+  background-color: #31343f;
+  border: 1px solid #3d404c;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+h2 {
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.form-label {
+  color: #f1f3f5;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.form-select {
+  background-color: #1c1e24;
+  color: #ffffff;
+  border: 1px solid #4b4f5c;
+  border-radius: 10px;
+  min-height: 56px;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+.form-select:focus {
+  background-color: #1c1e24;
+  color: #ffffff;
+  border-color: #666c7a;
+  box-shadow: 0 0 0 0.12rem rgba(255, 255, 255, 0.08);
+}
+
+.bg-dark {
+  background-color: #1f2128;
+  border: 1px solid #454854;
+  border-radius: 12px;
+}
+
+.bg-dark h5 {
+  color: #ffffff;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.bg-dark p {
+  margin-bottom: 0.5rem;
+  color: #e5e7eb;
+}
+
+.text-muted {
+  color: #b7bcc8 !important;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 12px;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+}

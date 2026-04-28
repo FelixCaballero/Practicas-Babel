@@ -1,0 +1,33 @@
+<div class="container py-4">
+  <div class="card form-card">
+    <div class="card-body p-4">
+      <h2 class="mb-4 text-white">Consulta Guiada</h2>
+
+      <div *ngFor="let nivel of niveles; let i = index" class="mb-4">
+        <label class="form-label">Nivel {{ i + 1 }}</label>
+        <select
+          class="form-select form-control-lg"
+          [name]="'nivel' + i"
+          [(ngModel)]="nivel.seleccionado"
+          (change)="onSeleccionarNivel(i)">
+          <option [value]="null">Selecciona...</option>
+          <option *ngFor="let opcion of nivel.opciones" [value]="opcion.id">
+            {{ opcion.nomMenu }}
+          </option>
+        </select>
+      </div>
+
+      <div *ngIf="menuFinal" class="mt-4 p-3 bg-dark rounded">
+        <h5>Menú seleccionado:</h5>
+        <p><strong>ID:</strong> {{ menuFinal.id }}</p>
+        <p><strong>Nombre:</strong> {{ menuFinal.nomMenu }}</p>
+        <p><strong>Nivel:</strong> {{ menuFinal.nivel }}</p>
+        <p><strong>ID Padre:</strong> {{ menuFinal.idPadre || '-' }}</p>
+      </div>
+
+      <div *ngIf="niveles.length === 0" class="text-center py-5 text-muted">
+        Cargando menús...
+      </div>
+    </div>
+  </div>
+</div>

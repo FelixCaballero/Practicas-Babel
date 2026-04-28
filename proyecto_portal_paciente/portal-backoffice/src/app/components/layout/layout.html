@@ -1,0 +1,63 @@
+<div class="container-fluid px-0 min-vh-100 app-dark">
+  <nav class="navbar navbar-dark border-bottom border-secondary shadow-sm topbar">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-end">
+
+      <h1 class="navbar-title position-absolute start-50 translate-middle-x m-0">
+        Backoffice Portal Hospital
+      </h1>
+
+      <div class="d-flex align-items-center gap-3 ms-auto">
+        @if (user) {
+          <span class="text-secondary small mb-0">Usuario: {{ user }}</span>
+        }
+
+        <a routerLink="/login" class="btn btn-outline-light btn-sm">
+          Salir
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row g-0 main-wrapper">
+    <aside class="col-12 col-md-3 col-lg-2 sidebar p-3">
+      <h4 class="text-light mb-4">Menú</h4>
+
+      <div class="d-grid gap-3">
+        <a routerLink="/layout/alta-menu" class="btn btn-outline-light text-start py-3">
+          Alta de Menú
+        </a>
+
+        <a routerLink="/layout/consultar-menu" class="btn btn-outline-secondary text-start py-3">
+          Consultar Menú
+        </a>
+
+        <a routerLink="/layout/alta-pagina" class="btn btn-outline-light text-start py-3">
+          Alta Página
+        </a>
+
+        <a routerLink="/layout/consultar-pagina" class="btn btn-outline-secondary text-start py-3">
+          Consultar Página
+        </a>
+
+        <a routerLink="/layout/guiadas" class="btn btn-outline-secondary text-start py-3">
+          Guiadas
+        </a>
+        <a routerLink="/layout/arbol-menu" class="btn btn-outline-secondary text-start py-3">
+          Arbol Menus
+        </a>
+
+        <a routerLink="/login" class="btn btn-danger text-start py-3 mt-4">
+          Salir
+        </a>
+      </div>
+    </aside>
+
+    <main class="col-12 col-md-9 col-lg-10 content-area p-4">
+      <div class="card content-card shadow-sm border-0">
+        <div class="card-body p-4">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

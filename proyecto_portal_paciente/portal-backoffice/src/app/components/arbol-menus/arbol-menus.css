@@ -1,0 +1,145 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #2f323d;
+  padding: 24px;
+  color: #f5f5f5;
+}
+
+.form-card {
+  background-color: #31343f;
+  border: 1px solid #3d404c;
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+h2 {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.estado-box {
+  background-color: #1f2128;
+  border: 1px solid #454854;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: #dfe3ea;
+}
+
+.tree-root,
+.tree-children {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.tree-children {
+  margin-left: 2rem;
+  margin-top: 0.75rem;
+  border-left: 1px solid #4a4d57;
+  padding-left: 1.25rem;
+}
+
+.tree-node {
+  margin-bottom: 1rem;
+}
+
+.node-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background-color: #1f2128;
+  border: 1px solid #454854;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+
+.node-main {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.toggle-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #5a5f6d;
+  background-color: #2e323c;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.leaf-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #df3b4a;
+  display: inline-block;
+}
+
+.node-info {
+  min-width: 0;
+}
+
+.node-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.node-meta {
+  color: #b7bcc8;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  word-break: break-word;
+}
+
+.node-actions {
+  flex-shrink: 0;
+}
+
+.btn-warning {
+  background-color: #f0b429;
+  border: 1px solid #f0b429;
+  color: #111;
+  border-radius: 10px;
+  font-weight: 700;
+  padding: 0.6rem 1rem;
+}
+
+.btn-warning:hover {
+  background-color: #d89d16;
+  border-color: #d89d16;
+  color: #111;
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 12px;
+  }
+
+  .card-body {
+    padding: 1rem;
+  }
+
+  .node-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .node-actions {
+    width: 100%;
+  }
+
+  .node-actions .btn {
+    width: 100%;
+  }
+}

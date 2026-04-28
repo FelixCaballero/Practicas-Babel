@@ -1,0 +1,118 @@
+.login-page {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(9, 20, 34, 0.82), rgba(9, 20, 34, 0.92)),
+    linear-gradient(135deg, #0c1624 0%, #13253d 55%, #1a3353 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.login-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, transparent 0%, rgba(201, 162, 39, 0.05) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 460px;
+  background: linear-gradient(180deg, #16263b 0%, #1c304b 100%);
+  color: #f1f3f5;
+  border: 1px solid #35557d;
+  border-top: 4px solid #c9a227;
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #aa151b 0%, #c9a227 50%, #aa151b 100%);
+  opacity: 0.9;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f8f9fa;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.login-subtitle {
+  color: #b8c7d9;
+  font-size: 0.95rem;
+}
+
+.form-label {
+  color: #e6edf5;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.form-control {
+  background-color: #0f1a29;
+  border: 1px solid #476489;
+  color: #f8f9fa;
+  border-radius: 10px;
+  min-height: 46px;
+}
+
+.form-control::placeholder {
+  color: #91a4bb;
+}
+
+.form-control:focus {
+  background-color: #102035;
+  color: #f8f9fa;
+  border-color: #c9a227;
+  box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.16);
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #1e3a5f 0%, #29517f 100%);
+  border: 1px solid #3b648f;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 10px;
+  min-height: 46px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #27466e 0%, #326395 100%);
+  border-color: #c9a227;
+  color: #ffffff;
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+  box-shadow: 0 0 0 0.2rem rgba(201, 162, 39, 0.18);
+}
+
+/* Extras opcionales */
+.login-card .text-muted {
+  color: #aebfd3 !important;
+}
+
+.login-card a {
+  color: #f4d77b;
+  text-decoration: none;
+}
+
+.login-card a:hover {
+  color: #ffe08a;
+  text-decoration: underline;
+}

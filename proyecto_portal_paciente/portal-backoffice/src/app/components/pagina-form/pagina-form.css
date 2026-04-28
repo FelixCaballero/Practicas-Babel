@@ -1,0 +1,269 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(180deg, #2f323d 0%, #383c48 100%);
+  padding: 24px;
+  color: #f5f5f5;
+}
+
+.container {
+  max-width: 1400px;
+}
+
+.card {
+  background-color: #343844;
+  border: 1px solid #4c5160;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.card-header {
+  background-color: transparent;
+  border-bottom: 1px solid #4c5160;
+  padding: 1.75rem 2rem 1rem 2rem;
+}
+
+.card-header h4 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.subtitulo {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  color: #d0d5df;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.card-body {
+  padding: 2rem;
+}
+
+.form-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.65rem;
+}
+
+.form-control,
+.form-select,
+textarea.form-control {
+  background-color: #23262e;
+  color: #ffffff;
+  border: 1px solid #666c7a;
+  border-radius: 10px;
+  min-height: 54px;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+textarea.form-control {
+  min-height: 260px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-control::placeholder,
+textarea.form-control::placeholder {
+  color: #c4c9d4;
+  opacity: 1;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+  background-color: #23262e;
+  color: #ffffff;
+  border-color: #8a91a1;
+  box-shadow: 0 0 0 0.18rem rgba(255, 255, 255, 0.10);
+}
+
+.form-control[readonly] {
+  background-color: #2a2e37;
+  color: #e0e4ec;
+  cursor: not-allowed;
+}
+
+.btn {
+  min-height: 54px;
+  border-radius: 10px;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  font-size: 1rem;
+  min-width: 170px;
+  box-shadow: none;
+}
+
+.btn-success,
+.btn-warning {
+  background-color: #df3b4a;
+  border: 1px solid #df3b4a;
+  color: #ffffff;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-warning:hover,
+.btn-warning:focus {
+  background-color: #c93341;
+  border-color: #c93341;
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  background-color: transparent;
+  border: 1px solid #8b91a0;
+  color: #f0f2f6;
+}
+
+.btn-outline-secondary:hover,
+.btn-outline-secondary:focus {
+  background-color: #4a4f5d;
+  border-color: #a1a8b8;
+  color: #ffffff;
+}
+
+a.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.row.g-4 {
+  --bs-gutter-y: 1.5rem;
+}
+
+/* ===== Editor enriquecido (Quill / ngx-quill) ===== */
+:host ::ng-deep .ql-toolbar.ql-snow {
+  background-color: #2b2f38;
+  border: 1px solid #666c7a;
+  border-bottom: 1px solid #7a8191;
+  color: #ffffff;
+}
+
+:host ::ng-deep .ql-container.ql-snow {
+  background-color: #23262e;
+  border: 1px solid #666c7a;
+  color: #ffffff;
+}
+
+:host ::ng-deep .ql-editor {
+  background-color: #23262e;
+  color: #ffffff;
+  min-height: 220px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+:host ::ng-deep .ql-editor.ql-blank::before {
+  color: #d0d5df;
+  opacity: 1;
+  font-style: normal;
+}
+
+:host ::ng-deep .ql-snow .ql-stroke {
+  stroke: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-fill {
+  fill: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-label {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-options {
+  background-color: #2b2f38;
+  border: 1px solid #666c7a;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-item {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow .ql-picker-label:hover,
+:host ::ng-deep .ql-snow .ql-picker-item:hover,
+:host ::ng-deep .ql-snow .ql-picker-item.ql-selected {
+  color: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow button:hover,
+:host ::ng-deep .ql-snow button:focus,
+:host ::ng-deep .ql-snow button.ql-active,
+:host ::ng-deep .ql-snow .ql-picker-label:hover,
+:host ::ng-deep .ql-snow .ql-picker-label.ql-active {
+  background-color: #3a3f4b;
+  border-radius: 6px;
+}
+
+:host ::ng-deep .ql-snow button:hover .ql-stroke,
+:host ::ng-deep .ql-snow button:focus .ql-stroke,
+:host ::ng-deep .ql-snow button.ql-active .ql-stroke,
+:host ::ng-deep .ql-snow .ql-picker-label:hover .ql-stroke,
+:host ::ng-deep .ql-snow .ql-picker-label.ql-active .ql-stroke {
+  stroke: #ffffff !important;
+}
+
+:host ::ng-deep .ql-snow button:hover .ql-fill,
+:host ::ng-deep .ql-snow button:focus .ql-fill,
+:host ::ng-deep .ql-snow button.ql-active .ql-fill {
+  fill: #ffffff !important;
+}
+
+:host ::ng-deep .ql-toolbar.ql-snow + .ql-container.ql-snow {
+  border-top: none;
+}
+
+/* Ajustes responsive */
+@media (max-width: 992px) {
+  .card-header h4 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    padding: 12px;
+  }
+
+  .card-header,
+  .card-body {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .card-header h4 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .d-flex.justify-content-end {
+    flex-direction: column;
+  }
+}
+.mensaje-error {
+  background-color: #842029;
+  color: #ffffff;
+  border: 1px solid #f1aeb5;
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
